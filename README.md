@@ -8,4 +8,4 @@ To build them run `build.cmd` or `build.sh`.
 
 The output, which can be published as a stand-alone static website, can be found in the "output" folder
 
-(Note, I believe the output folder has some extra Bower/Grunt dependencies you need to run first to make it turly static)
+(Note, I believe the output folder has some extra Bower/Grunt dependencies you need to run first to make it truly static)
