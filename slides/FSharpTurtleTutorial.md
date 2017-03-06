@@ -226,5 +226,6 @@ Next, on the command line, cd into the "Unit-Tests" folder from root and run `do
 If you'd like to continue learning F#:
 
 * [Do the "Why Use F#" series on F# For Fun And Profit](https://fsharpforfunandprofit.com/series/why-use-fsharp.html)
+* [Do the F# Koans from Chris Marinos](https://github.com/ChrisMarinos/FSharpKoans)
 * [Watch Scott's Talk on Domain Driven Design in F#](https://fsharpforfunandprofit.com/ddd/)
 * [Come to the F# |> Bristol meetup](https://www.meetup.com/FSharpBristol/)
