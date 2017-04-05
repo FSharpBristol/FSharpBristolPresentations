@@ -139,10 +139,10 @@ The `with` syntax in F# lets us do this without copying each value manually to a
 Below is the logic you will need to move the turtle based on it's current angle.
 
 ```fsharp
-let angleInRads = turtle.angle * (Math.PI/180.0) * 1.0
+let angleInRads = turtle.angle * (Math.PI/180.0)
 {turtle with 
-    xpos = turtle.xpos + (distance * Math.Cos(angleInRads))
-    ypos = turtle.ypos + (distance * Math.Sin(angleInRads))}
+    xpos = turtle.xpos + (distance * Math.Sin(angleInRads))
+    ypos = turtle.ypos + (distance * Math.Cos(angleInRads))}
 ```
 
 Copy this in after `| Move distance ->` in the `processCommand` function.
@@ -215,7 +215,15 @@ Uncomment all code under
 
 In VS Code, select the whole file except the `module TurtleRunner` line and press Alt+Enter to send to F# Interactive
 
-If the exercise is completed, this should run without error.
+If the exercise is completed, this should run without error returning a Turtle in the state:
+
+```fsharp
+{xpos = 40.0
+ ypos = -20.0
+ angle = 180.0
+ penState = Up
+ colour = Red}
+ ```
 
 Next, on the command line, cd into the "Unit-Tests" folder from root and run `dotnet test`.  All tests should now pass.
 
