@@ -213,7 +213,7 @@ Uncomment all code under
 // --- Uncomment this section to run a full test ---
 ```
 
-If you're using Visual Studio Code with the Ionide extension, press "F1", type "FSI: Send File" and press enter.
+In VS Code, select the whole file except the `module TurtleRunner` line and press Alt+Enter to send to F# Interactive
 
 If the exercise is completed, this should run without error.
 
