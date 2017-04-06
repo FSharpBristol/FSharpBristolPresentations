@@ -34,7 +34,7 @@ let add x y = x + y
 type Person = {First:string; Last:string}
 
 // Here we create an instance of the Person type
-// It's type is  inferred by the property names
+// It's type is inferred by the property names
 let bob = {First="Bob"; Last="Baggings"}
 ```
 
