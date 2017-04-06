@@ -4,8 +4,14 @@ Presentations for [F# |> Bristol](https://www.meetup.com/FSharpBristol/) using [
 
 The presentations themselves can be found in the "slides" folder.  
 
-To build them run `build.cmd` or `build.sh`.
+## Building and Running
 
-The output, which can be published as a stand-alone static website, can be found in the "output" folder
+To build them run `build.cmd` or `build.sh`.  This will download all dependencies, generate the slides then launch them in the browser
 
-(Note, I believe the output folder has some extra Bower/Grunt dependencies you need to run first to make it truly static)
+## Publishing
+
+Ensure you have Git setup and on your path locally.  Also ensure you are authenticated to the below repository.
+
+Run `publish.cmd`; this will publish the slides to https://github.com/FSharpBristol/FSharpBristol in a folder called "/presentations"
+
+This is a GitHub pages website, all presentations will be hosted here: https://fsharpbristol.github.io/FSharpBristol/presentations
