@@ -9,12 +9,12 @@
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
-let gitOwner = "myGitUser"
+let gitOwner = "FSharpBristol"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "MyProject"
+let gitProjectName = "FSharpBristol"
 // The name of the GitHub repo subdirectory to publish slides to
-let gitSubDir = ""
+let gitSubDir = "presentations"
 
 open FsReveal
 open Fake
@@ -147,7 +147,7 @@ Target "ReleaseSlides" (fun _ ->
     let tempDocsRoot = __SOURCE_DIRECTORY__ </> "temp/gh-pages"
     let tempDocsDir = tempDocsRoot </> gitSubDir
     CleanDir tempDocsRoot
-    Repository.cloneSingleBranch "" (gitHome + "/" + gitProjectName + ".git") "gh-pages" tempDocsRoot
+    Repository.cloneSingleBranch "" (gitHome + "/" + gitProjectName + ".git") "master" tempDocsRoot
 
     fullclean tempDocsDir
     CopyRecursive outDir tempDocsDir true |> tracefn "%A"
