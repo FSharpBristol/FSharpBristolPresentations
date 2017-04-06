@@ -6,12 +6,6 @@
 
 ***
 
-### F# Turtle Tutorial
-
-Introduction
-
----
-
 ### What is F#?
 
 F# is a strongly typed functional programming language built atop the .Net CLI
