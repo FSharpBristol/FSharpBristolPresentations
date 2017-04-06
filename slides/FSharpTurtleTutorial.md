@@ -10,6 +10,129 @@
 
 Introduction
 
+---
+
+### What is F#?
+
+F# is a strongly typed functional programming language built atop the .Net CLI
+
+Originally developed by Don Syme from Microsoft Research, it has the conciseness of Python, strictness of Scala & ecosystem of .Net.
+
+---
+
+### Benefits 
+
+[Taken from Scott Wlaschin's summary here](https://fsharpforfunandprofit.com/why-use-fsharp/)
+
+The "5Cs" of F#...
+
+---
+
+### Conciseness
+
+F# gets rid of a lot of the clutter / noise, removing curly brackets, semi colons etc:
+
+```fsharp
+// Functions are very light weight
+let add x y = x + y
+
+// This is a Record Type declaration; an immutable DTO
+type Person = {First:string; Last:string}
+
+// Here we create an instance of the Person type
+// It's type is  inferred by the property names
+let bob = {First="Bob"; Last="Baggings"}
+```
+
+A lot of this is due to a powerful type inference system the compiler uses than can work out static types without having to explicitly declare them.
+
+---
+
+### Convenience
+
+The lightweight nature of F# makes common programming tasks simpler.  This is especially true for rapidly building domain models.
+
+```fsharp
+// Low overhead type definitions
+type Coord = {Lat:float; Long:float}
+
+type TimePeriod = Hour | Day | Week | Year
+type Temperature = C of int | F of int
+type Appointment = OneTime of DateTime | Recurring of DateTime list
+
+// "Railway orientated" concise, easy to read chains of logic
+config
+|> TableManager.createTable client
+|> TableManager.waitForTableCreation client
+|> DataManager.streamRowsFromSourceFile
+|> DataManager.loadRowsIntoDynamo client
+```
+
+As functions are first class citizens, the emphasis is on functional composition of reusable code over inheritance.
+
+----
+
+### Correctness
+
+Values are immutable by default, nulls are replaced with `Option` types, and it supports explicit units of measure, preventing a large class of errors.
+
+```fsharp
+let bob = {First="Bob"; Last="Baggings"}
+bob.First <- "Jim" // Assignment error
+
+// Option types explicitly capture that a value may not be present
+// These can be thought of like Nullable<T> types in .Net
+let getResponseBody: string Option = 
+    match response.StatusCode with
+    | 200 -> Some response.Body
+    | 404 -> None
+
+let distance = 10<m> + 10<ft> // errors, can't add meters to feet
+```
+
+As F# is strongly typed, you get all the compile time benefits of .Net without the overhead.
+
+---
+
+### Concurrency
+
+F# has a set of built in libraries for asynchronous logic; not only with the `async {}` wrapper but also a built-in actor model.
+
+```fsharp
+Async.Parallel [ for i in 0..40 -> async {
+    return fib(i)
+}]
+
+MailboxProcessor.Start(fun inbox-> async {
+    let! msg = inbox.Receive()
+    printfn "message is: %s" msg
+}) 
+```
+
+This is enhanced by the focus on immutable data structures which allow sharing of state & avoid locking of resources.
+
+---
+
+### Completeness
+
+Whilst F# focused on being functional, it is a multi-paradigm language that supports OO if required.
+
+As it is built ontop of the .Net CLI, it has full access to the existing .Net ecosystem, NuGet packages and C# assemblies.
+
+```fsharp
+// Values can be made mutable if necessary
+let mutable counter = 0
+
+// .Net libaries can be used seamlessly
+open Newtonsoft.Json
+let person = JsonConvert.DeserializeObject<Person>(content)
+
+// Out parameters are actually handled in a cleaner way
+let (successfully, parsedValue) = System.Int32.TryParse("123");
+```
+
+Supported in both .Net 4.5+ and .Net Core.  Has tooling for Visual Studio 2012 onwards & Visual Studio Code
+
 ***
 
 ### Exercise Setup
