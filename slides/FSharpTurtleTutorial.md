@@ -8,9 +8,9 @@
 
 ### What is F#?
 
-F# is a strongly typed functional programming language built atop the .Net CLI
+F# is a strongly typed functional programming language built atop the .NET CLI
 
-Originally developed by Don Syme from Microsoft Research, it has the conciseness of Python, strictness of Scala & ecosystem of .Net.
+Originally developed by Don Syme from Microsoft Research, it has the conciseness of Python, strictness of Scala & ecosystem of .NET.
 
 ---
 
