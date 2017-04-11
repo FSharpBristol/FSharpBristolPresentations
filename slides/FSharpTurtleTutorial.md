@@ -224,7 +224,7 @@ match command with
     | Move distance -> printfn "move %f" distance
     | Turn(direction, degrees) -> printfn "turn %A %f" direction degrees
     | SetPen state ->  printfn "set pen to %A" state
-    | SetColour colour -> "set colour to %A" colour
+    | SetColour colour -> printfn "set colour to %A" colour
 ```
 
 Pattern matching allows you to check type **and** bind the values inside that type in one step.  Think switch statements on crack.
@@ -253,7 +253,7 @@ The `with` syntax in F# lets us do this without copying each value manually to a
 
 ### Implementing Process Command
 
-Below is the logic you will need to move the turtle based on it's current angle.
+Below is the logic you will need to move the turtle based on its current angle.
 
 ```fsharp
 let angleInRads = turtle.angle * (Math.PI/180.0)
