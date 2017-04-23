@@ -362,8 +362,6 @@ If the exercise is completed, this should run without error returning a Turtle i
 {xpos = 40.0; ypos = -20.0; angle = 180.0; penState = Up; colour = Red}
  ```
 
-Next, on the command line, cd into the "Unit-Tests" folder from root and run `dotnet test`.  All tests should now pass.
-
 ***
 
 ### Where Next?
