@@ -239,7 +239,7 @@ type Direction = Up | Down  // 2 possible values
 
 // Product type - denoted by "*"
 // Contains:
-//  - A set possible Speeds 
+//  - A set of all possible Speeds 
 //  - TIMES
 //  - A set of all possible Directions
 type Movement = Moving of Speed * Direction 
