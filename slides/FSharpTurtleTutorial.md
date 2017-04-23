@@ -195,6 +195,64 @@ Fill in the Turtle record so it has these properties:
 
 ---
 
+### Significant Whitespace & Line Endings
+
+F#, just like Python, uses significant whitespace for indentation.
+
+```fsharp
+// Totally cool
+type Person = {
+    firstName:string
+    lastName:string}
+
+// Not cool, won't compile
+type Person = {
+    firstName:string
+lastName:string}
+```
+
+You'll also see some of the examples use `;` and some use new lines.  The two are synonymous with each other
+
+```fsharp
+// If on one line, you need to use ";"
+type Person = {firstName:string; lastName:string}
+
+// But on multiple lines, the new line acts as the terminator
+type Person = {
+    firstName:string
+    lastName:string}
+```
+
+---
+
+### The Algebraic Type System
+
+Think of the type system as set logic rather than defining objects
+
+Sum types are "Discriminated Unions", Product types are "Tuples"
+
+```fsharp
+// Sum type - denoted by "|"
+// This type contains a sum of all the possible values
+type Speed = Slow | Fast    // 2 possible values
+type Direction = Up | Down  // 2 possible values
+
+// Product type - denoted by "*"
+// Contains:
+//  - A set possible Speeds 
+//  - TIMES
+//  - A set of all possible Directions
+type Movement = Moving of Speed * Direction 
+
+// The Product of our 2 sum types is 4 possible values
+Moving(Slow, Up)
+Moving(Slow, Down)
+Moving(Fast, Up)
+Moving(Fast, Down)
+```
+
+---
+
 ### Discriminated Unions with Values
 
 Here's the true power of discriminated unions; they allow us to declare values that must be provided to initialise them.
