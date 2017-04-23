@@ -195,7 +195,7 @@ Fill in the Turtle record so it has these properties:
 
 ---
 
-### Significant Whitespace & Line Endings
+### Significant Whitespace
 
 F#, just like Python, uses significant whitespace for indentation.
 
@@ -211,16 +211,21 @@ type Person = {
 lastName:string}
 ```
 
+---
+
+### Line Endings & Semi Colons
+
 You'll also see some of the examples use `;` and some use new lines.  The two are synonymous with each other
 
 ```fsharp
 // If on one line, you need to use ";"
-type Person = {firstName:string; lastName:string}
+type Person = {firstName:string; lastName:string; age:int}
 
 // But on multiple lines, the new line acts as the terminator
 type Person = {
     firstName:string
-    lastName:string}
+    lastName:string
+    age:int}
 ```
 
 ---
