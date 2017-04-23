@@ -342,6 +342,8 @@ let angleInRads = turtle.angle * (Math.PI/180.0)
 
 Copy this in after `| Move distance ->` in the `processCommand` function.
 
+Once you add this the other match statements will go red; this is because `Move distance` is now returning a Turtle type, but the other statements are still returning a unit type.
+
 Now finish implementing the rest of the pattern match expressions for `Turn`, `SetPen` and `SetColour`
 
 ---
@@ -392,12 +394,30 @@ Note how we've not specified the name of the record type being instantiated, the
 
 --- 
 
+### List.fold
+
+This is like a `reduce` operation; it takes in an initial value (`turtle`) and a list to iterate over (`commands`).
+
+```fsharp
+List.fold (fun agg command -> processCommand agg command) 
+          turtle 
+          commands
+```
+
+For each item in the list, it passes in the current aggregator (`agg`) and the current list item (`command`), applies a function to them which returns a new aggregator (so here, a new `Turtle` type).
+
+In our context; this boils down to taking a turtle and a command, processing that command, then returning a turtle with the updated state so we can apply the next command
+
+---
+
 ### Pipe Forward Operator
 
 The pipe forward operator `|>` takes the preceding value and puts it into the last argument of the following function.
 
 ```fsharp
-let movedTurtle = commands |> List.fold processCommand turtle
+let movedTurtle = 
+    commands 
+    |> List.fold (fun agg command -> processCommand agg command) turtle
 ```
 
 This is really syntax sugar however leads to code that states it's intentions clearly, such as
