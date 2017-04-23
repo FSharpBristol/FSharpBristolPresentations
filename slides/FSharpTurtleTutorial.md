@@ -296,6 +296,8 @@ Now we've implemented the solution, we can uncomment all code under:
 // --- Uncomment this section to run a full test ---
 ```
 
+Note how block comments in F# use `(* *)` instead of `/* */`
+
 ---
 
 ### Lists
