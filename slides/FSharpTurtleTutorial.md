@@ -129,6 +129,16 @@ Supported in both .Net 4.5+ and .Net Core.  Has tooling for Visual Studio 2012 o
 
 ***
 
+### The Exercise
+
+We'll be working through an F# script that models a Logo Turtle, allow us to give it basic commands such as `Move 10`, `Turn Left 90`, `Pen Down` and `Set Colour Green`.
+
+The script is incomplete; as we walk through the workshop we will be adding to the code until it is a functional Logo program.
+
+At the end we'll pass a series of commands to our Turtle and check it responds as expected.
+
+---
+
 ### Exercise Setup
 
 Clone the [F# Turtle Tutorial](https://github.com/FSharpBristol/FSharpTurtleTutorial)
