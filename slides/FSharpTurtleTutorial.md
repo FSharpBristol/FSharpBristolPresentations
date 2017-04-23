@@ -149,6 +149,16 @@ Then open `./Exercise/TurtleRunner.fs`
 
 ---
 
+### The FSI
+
+The F# tools you've installed include a REPL called "FSI".  This will let us execute each part of the tutorial without having to build each time, whilst allowing us to execute individual lines or sections of code on the fly.
+
+To use this in VS Code, select the lines you wish to execute and press Alt+Enter.  This will send the code to FSI and run it, giving you back the declared types and output.
+
+Don't select the `module TurtleRunner` line when using FSI, it won't be able to interpret it.
+
+---
+
 ### Basic Discriminted Unions
 
 ```fsharp
