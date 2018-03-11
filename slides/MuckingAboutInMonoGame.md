@@ -38,7 +38,7 @@ MonoGame allows cross-platform game development, targeting:
 
 Show a basic game using the MonoGame Framework with F#
 
-Should include:
+Including:
 
 * Implementing the core game loop (load, update, draw)
 * Rendering an image to the screen
