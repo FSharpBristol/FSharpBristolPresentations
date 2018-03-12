@@ -130,6 +130,8 @@ let main argv =
     0
 ```
 
+Now when we launch it, we should get a nice background
+
 ***
 
 ## Stage 2: Displaying Our Image
@@ -258,32 +260,31 @@ We now need a way of translating a key press into a movement of the images posit
 let Move (gameTime: GameTime)
          (sprite: Sprite) 
          (kstate: KeyboardState): Sprite =
-    possibleMoves
-    |> List.fold(fun (position: Vector2) (key, adjustment, dimension) -> 
-        // Starting with our current position
-        // Take every possible move and apply it to our position
-        // -- Actual logic in next slide -- 
-        position  
-    ) sprite.position
-    // Apply the updated position to the sprite
-    |> fun updatedPosition -> { sprite with position=updatedPosition }
+    let elapsedTime = (gameTime.ElapsedGameTime.TotalSeconds |> float32)
+
+    let AdjustPosition (position: Vector2) (key, adjustment, dimension) =
+        if kstate.IsKeyDown(key) 
+        then
+            let amountMoved = sprite.speed * elapsedTime
+            match (adjustment, dimension) with
+            | (Add, Y) -> Vector2(position.X, position.Y + amountMoved )
+            | (Subtract, Y) -> Vector2(position.X, position.Y - amountMoved )
+            | (Add, X) -> Vector2(position.X + amountMoved, position.Y)
+            | (Subtract, X) -> Vector2(position.X - amountMoved, position.Y)
+        else position
 ```
 
 ---
 
-Our fold function is:
+`AdjustPosition` can then be applied to each possible move in the `Move` function.
 
 ```fsharp
-        if kstate.IsKeyDown(key) 
-        then 
-             let elapsedTime = (gameTime.ElapsedGameTime.TotalSeconds |> float32)
-             let amountMoved = sprite.speed * elapsedTime
-             match (adjustment, dimension) with
-             | (Add, Y) -> Vector2(position.X, position.Y + amountMoved )
-             | (Subtract, Y) -> Vector2(position.X, position.Y - amountMoved )
-             | (Add, X) -> Vector2(position.X + amountMoved, position.Y)
-             | (Subtract, X) -> Vector2(position.X - amountMoved, position.Y)
-        else position
+    // Starting with our current position
+    // Take every possible move and apply it to our position
+    let updatedPosition = possibleMoves |> List.fold AdjustPosition sprite.position
+
+    // Apply the updated position to the sprite
+    { sprite with position=updatedPosition }
 ```
 
 ---
@@ -291,7 +292,7 @@ Our fold function is:
 Change the `Update` function so logo is set as:
 
 ```fsharp
-_logo <- Move gameTime _logo (Keyboard.GetState())
+_logo <- (Move gameTime _logo (Keyboard.GetState()))
 ```
 
 Run the game again
@@ -335,7 +336,16 @@ let Move (gameTime: GameTime)
 In the `Move` function add this last pipe forward operator:
 
 ```fsharp
+{ sprite with position=updatedPosition }
 |> StopAtBorders graphics
+```
+
+---
+
+Finally, modify the `Update` method to pass in the new parameter:
+
+```fsharp
+_logo <- (Move gameTime _logo (Keyboard.GetState()) _graphics)
 ```
 
 Run the game again
