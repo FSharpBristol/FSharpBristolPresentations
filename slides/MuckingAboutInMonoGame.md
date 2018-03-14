@@ -352,6 +352,22 @@ Run the game again
 
 ***
 
+## Recap
+
+So we can: 
+
+* Render an image to the screen
+* Move the image based on user input
+* Detect whether the image has hit the borders
+
+So far, the game isn't particularly interesting, however...
+
+---
+
+## Something A Little More Interesting...
+
+---
+
 ## Next Steps
 
 MonoGame has extensive docs & templates here: 
