@@ -8,5 +8,9 @@
 
 ### F# |> Bristol Presentations
 
-* [F# Turtle Tutorial](FSharpTurtleTutorial.html)
-* [Mucking About In MonoGame](MuckingAboutInMonoGame.html)
+* Our Talks
+    * [F# Turtle Tutorial](FSharpTurtleTutorial.html) - Luke Merrett
+    * [Mucking About In MonoGame](MuckingAboutInMonoGame.html) - Luke Merrett
+
+* Talks From Other Speakers
+    * [Hunting Typosquatters With F#](http://chesterburbidge.com/RepoHunt/) - Chester Burbidge
