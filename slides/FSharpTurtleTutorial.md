@@ -341,8 +341,8 @@ Below is the logic you will need to move the turtle based on its current angle.
 ```fsharp
 let angleInRads = turtle.angle * (Math.PI/180.0)
 {turtle with 
-    xpos = turtle.xpos + (distance * sin angleInRads)
-    ypos = turtle.ypos + (distance * cos angleInRads)}
+    xpos = turtle.xpos + distance * sin angleInRads
+    ypos = turtle.ypos + distance * cos angleInRads}
 ```
 
 Copy this in after `| Move distance ->` in the `processCommand` function.
